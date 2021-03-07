@@ -4,6 +4,10 @@
   width: 650px;
 }
 
+img#portrait {
+    size: 10%;
+}
+
 #greeting-container {
   margin-top: 20px;
 }

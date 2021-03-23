@@ -24,6 +24,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/page-views")
 public class PageViewServlet extends HttpServlet {
 
+  static final long serialVersionUID = 0;
+  
   private int pageViews = 0;
 
   @Override

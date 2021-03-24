@@ -22,6 +22,8 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/form-handler")
 public class FormHandlerServlet extends HttpServlet {
+  
+  static final long serialVersionUID = 0;
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {

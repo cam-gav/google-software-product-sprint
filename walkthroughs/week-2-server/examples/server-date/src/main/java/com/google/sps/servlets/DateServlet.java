@@ -25,6 +25,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/date")
 public class DateServlet extends HttpServlet {
 
+  static final long serialVersionUID = 0;
+
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     response.setContentType("text/html;");

@@ -12,6 +12,28 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+/** Fetches some string from the server and adds it to the page. */
+async function showServerString() {
+  const responseFromServer = await fetch('/rand-strings');
+  const strings = await responseFromServer.json();
+  
+  // Pick a random string.
+  const randString = strings[Math.floor(Math.random() * strings.length)];
+
+  const stringsListElement = document.getElementById('string-container');
+  stringsListElement.innerHTML = '';
+
+  stringsListElement.appendChild(
+      createListElement(randString));
+}
+
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
+}
+
 /**
  * Adds a random greeting to the page.
  */
@@ -25,13 +47,4 @@ function addRandomGreeting() {
   // Add it to the page.
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
-}
-
-/** Fetches some string from the server and adds it to the page. */
-async function showServerString() {
-  const responseFromServer = await fetch('/rand-strings');
-  const textFromResponse = await responseFromServer.text();
-
-  const stringContainer = document.getElementById('string-container');
-  stringContainer.innerText = textFromResponse;
 }

@@ -25,5 +25,8 @@ public class FormHandlerServlet extends HttpServlet {
 
     // Write the value to the response so the user can see it.
     response.getWriter().println("You submitted: " + textValue);
+
+    // tells the client which URL to visit next
+    response.sendRedirect("index.html");
   }
 }

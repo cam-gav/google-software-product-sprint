@@ -47,9 +47,15 @@
                     <p>Leave feedback here:</p>
                     <textarea name="text-input" placeholder="Type your message here!"></textarea>
                     <p>Please do not include any personal or sensitive info. Thanks!</p>
-                    <br/>
                     <input type="submit" />
                 </form>
+                <br/>
+                <div>
+                    <button onclick="loadSubmissions()">Click to show submissions!</button>
+                    <div class="flex-grow-1 overflow-auto">
+                        <ul id="entry-list"></ul>
+                    </div>
+                </div>
             </div>
         </div>
     </body>

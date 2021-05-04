@@ -10,6 +10,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
 
 @WebServlet("/form-handler")
 public class FormHandlerServlet extends HttpServlet {
@@ -22,8 +24,10 @@ public class FormHandlerServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        // Get the value entered in the form and timestamp of submission
-        String textValue = request.getParameter("text-input");
+        // Get and sanitize the user input to remove HTML tags and JavaScript.
+        String textValue = Jsoup.clean(request.getParameter("text-input"), Whitelist.none());
+
+        // Get timestamp of submission
         long timestamp = System.currentTimeMillis();
 
         // Store submission in datastore

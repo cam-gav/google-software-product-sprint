@@ -24,22 +24,38 @@
                 </p>
                 </br>
             </div>
+            
+            <hr/>
+
             <div>
                 <p>Click button below to see a random technical skill of mine.</p>
                 <button onclick="showServerString()">Get skill</button>
                 <ul id="string-container"></ul>
                 <p>Click <a href="/rand-strings">here</a> to see the server response (random string) directly.</p>
+                
+                <hr/>
+                
                 <p>Click button below to get greeted in one of the languages I speak!</p>
                 <button onclick="addRandomGreeting()">Hello</button>
                 <div id="greeting-container"></div>
             </div>
+
+            <hr/>
+
             <div>
                 <form action="/form-handler" method="POST">
-                    <p>Want to connect? Have any feedback for me?</p>
+                    <p>Leave feedback here:</p>
                     <textarea name="text-input" placeholder="Type your message here!"></textarea>
-                    <br/>
+                    <p>Please do not include any personal or sensitive info. Thanks!</p>
                     <input type="submit" />
                 </form>
+                <br/>
+                <div>
+                    <button onclick="loadSubmissions()">Click to show submissions!</button>
+                    <div class="flex-grow-1 overflow-auto">
+                        <ul id="entry-list"></ul>
+                    </div>
+                </div>
             </div>
         </div>
     </body>

@@ -48,3 +48,18 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+
+/** Fetches list of submissions from datastore using servlet and adds it to the page. */
+async function loadSubmissions() {
+  const responseFromServer = await fetch('/list-submissions');
+  const submissions = await responseFromServer.json();
+  
+  const stringsListElement = document.getElementById('entry-list');
+  stringsListElement.innerHTML = '';
+
+  submissions.forEach(myFunction);
+  function myFunction(value, index, array) {
+    stringsListElement.appendChild(
+      createListElement(value.message));
+  }
+}
